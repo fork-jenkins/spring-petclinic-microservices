@@ -3,7 +3,10 @@ VOLUME /tmp
 
 # Download dockerize and cache that layer
 ARG DOCKERIZE_VERSION
-RUN wget -O dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-alpine-linux-amd64-${DOCKERIZE_VERSION}.tar.gz
+
+#RUN git config --global http.sslVerify false
+
+RUN wget --no-check-certificate -O dockerize.tar.gz https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-alpine-linux-amd64-${DOCKERIZE_VERSION}.tar.gz 
 RUN tar xzf dockerize.tar.gz
 RUN chmod +x dockerize
 

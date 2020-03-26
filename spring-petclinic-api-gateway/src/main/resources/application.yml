@@ -23,3 +23,7 @@ spring:
             - Path=/api/customer/**
           filters:
             - StripPrefix=2
+
+  custom:
+    deploy:
+      type: green
