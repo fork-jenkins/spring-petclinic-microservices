@@ -18,7 +18,7 @@ spec:
           image: awscicd/spring-petclinic-vets-service
           command: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
           ports:
-            - containerPort: 7073
+            - containerPort: 8083
   replicas: 1
   selector:
     matchLabels:
@@ -34,9 +34,9 @@ metadata:
 spec:
   #type: NodePort
   ports:
-    - name: "7073"
-      targetPort: 7073
-      port: 7073
+    - name: "8083"
+      targetPort: 8083
+      port: 8083
       #nodePort: 30761
   selector:
     app: petclinic-microservice

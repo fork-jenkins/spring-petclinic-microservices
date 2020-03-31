@@ -17,8 +17,9 @@ spec:
         - name: customers-service
           image: awscicd/spring-petclinic-customers-service
           command: ["./dockerize","-wait=tcp://discovery-server:8761","-timeout=60s","--","java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+          #command: ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
           ports:
-            - containerPort: 7071
+            - containerPort: 8081
   replicas: 1
   selector:
     matchLabels:
@@ -34,9 +35,9 @@ metadata:
 spec:
   #type: NodePort
   ports:
-    - name: "7071"
-      targetPort: 7071
-      port: 7071
+    - name: "8081"
+      targetPort: 8081
+      port: 8081
       #nodePort: 30761
   selector:
     app: petclinic-microservice
