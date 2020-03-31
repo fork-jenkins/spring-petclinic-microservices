@@ -34,9 +34,10 @@ metadata:
   name: discovery-server
 spec:
   #type: NodePort
+  type: ClusterIP
   ports:
     - name: "8761"
-      targetPort: 8761
+      targetPort: 8761 # Container/Pod port
       port: 8761
       #nodePort: 30761
   selector:

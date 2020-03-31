@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-petclinic
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+
+spec:
+  rules:
+     - host: discovery.dcpgreendot.com
+       http:
+        paths:
+          - path: /
+            backend:
+              serviceName: discovery-server
+              servicePort: 8761
